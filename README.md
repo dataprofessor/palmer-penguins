@@ -1,7 +1,4 @@
-# 🤖 ML3 - ML app in 3 levels of difficulty
-```
-⬆️ (Replace above with your app's name)
-```
+# 🤖 ML3 - ML app in 3 difficulty levels
 
 Description of the app ...
 
