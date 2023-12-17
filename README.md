@@ -1,4 +1,4 @@
-# 📦 Streamlit App Starter Kit 
+# 📦 ML3 - ML app in 3 levels of difficulty
 ```
 ⬆️ (Replace above with your app's name)
 ```
