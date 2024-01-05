@@ -62,11 +62,13 @@ clf.fit(X, y)
 prediction = clf.predict(input_row)
 prediction_proba = clf.predict_proba(input_row)
 
-st.subheader('Predicted Species')
+st.subheader('Prediction')
+
+st.write(Predicted Species:)
 penguins_species = np.array(['Adelie','Chinstrap','Gentoo'])
 st.success(str(penguins_species[prediction][0]))
 
-st.subheader('Prediction Probability')
+st.write('Prediction Probability:')
 st.dataframe(prediction_proba, 
              column_config={
                 '0': st.column_config.ProgressColumn(
