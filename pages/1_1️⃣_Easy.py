@@ -29,13 +29,15 @@ data = {'island': island,
         'gender': gender}
 input_df = pd.DataFrame(data, index=[0])
 
-# Combines user input features with entire penguins dataset
-# This will be useful for the encoding phase
+# Data pre-processing
+
+## Combines user input features with entire penguins dataset
+## This will be useful for the encoding phase
 penguins_raw = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/palmer-penguins/master/data/penguins_cleaned.csv')
 penguins = penguins_raw.drop('species', axis=1)
 input_penguins = pd.concat([input_df,penguins],axis=0)
 
-# Encoding ordinal features
+## Encoding ordinal features
 encode = ['gender','island']
 
 for col in encode:
@@ -45,7 +47,6 @@ for col in encode:
 
 input_row = df_penguins[:1] # Selects only the first row (the user input data)
 
-# ML model building
 ## Preparing the dataframe
 target_mapper = {'Adelie':0, 'Chinstrap':1, 'Gentoo':2}
 def target_encode(val):
@@ -64,11 +65,9 @@ df['species'] = df['species'].apply(target_encode)
 X = df.drop('species', axis=1)
 y = df['species']
 
-st.write(X)
-
 # Train ML model
-# clf = RandomForestClassifier()
-# clf.fit(X, y)
+clf = RandomForestClassifier()
+clf.fit(X, y)
 
 # Apply model to make predictions
 # prediction = clf.predict(input_row)
