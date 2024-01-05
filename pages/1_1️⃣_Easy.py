@@ -72,11 +72,11 @@ y = df['species']
 
 
 # Train ML model
-clf = RandomForestClassifier()
-clf.fit(X, y)
+# clf = RandomForestClassifier()
+# clf.fit(X, y)
 
 # Apply model to make predictions
-prediction = clf.predict(input_row)
+# prediction = clf.predict(input_row)
 # prediction_proba = clf.predict_proba(input_row)
 
 #st.subheader('Prediction')
