@@ -7,4 +7,4 @@ st.set_page_config(
 )
 
 st.title('🐧 Palmer Penguins Predictor')
-st.warning('Advanced Mode')
+st.error('Advanced Mode')
