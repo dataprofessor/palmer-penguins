@@ -104,7 +104,7 @@ df_output = pd.concat([input_df, df_prediction, pd.Series(penguins_species[predi
 df_output
 st.download_button(
     label="Download results as CSV",
-    data=df_output,
+    data=df_output.to_csv().encode('utf-8'),
     file_name='prediction.csv',
     mime='text/csv',
 )
