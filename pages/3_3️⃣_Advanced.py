@@ -34,7 +34,7 @@ st.dataframe(input_df, hide_index=True)
 
 # Model settings
 
-with st.sidebar():
+with st.sidebar:
     st.header('⚙️ Model Settings')
     parameter_split_size = st.slider('Data split ratio (% for Training Set)', 10, 90, 80, 5)
 
