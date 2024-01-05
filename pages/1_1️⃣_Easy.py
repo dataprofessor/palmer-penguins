@@ -74,4 +74,14 @@ penguins_species = np.array(['Adelie','Chinstrap','Gentoo'])
 st.success(str(penguins_species[prediction][0]))
 
 st.subheader('Prediction Probability')
-st.write(prediction_proba)
+st.dataframe(prediction_proba, 
+             column_config={
+                0: st.column_config.ProgressColumn(
+                    "Adelie",
+                    format="$%f",
+                    min_value=0,
+                    max_value=1,
+                ),
+            },
+            hide_index=True,
+        )
