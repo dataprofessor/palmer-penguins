@@ -37,7 +37,7 @@ st.dataframe(input_df, hide_index=True)
 with st.sidebar:
     st.header('⚙️ Model Settings')
     parameter_n_estimators = st.slider('Number of estimators (n_estimators)', 0, 1000, 200, 100)
-    parameter_max_features = st.slider('Max features (max_features)', 0, 5, 5, 1)
+    parameter_max_features = st.slider('Max features (max_features)', 1, 5, 5, 1)
 
 # Data pre-processing
 
