@@ -144,7 +144,8 @@ predictions = clf.predict(X)
 cm = confusion_matrix(y, predictions, labels=clf.classes_)
 
 labels = np.unique(y)
-cm = [y for i in cm for y in i]
+cm = [str(penguins_species[y][0]) for i in cm for y in i]
+# cm = [y for i in cm for y in i]
 roll = list(product(np.unique(y), repeat = 2))
 columns = ["actual", "predicted", "confusion_matrix"]
 
@@ -153,7 +154,8 @@ df_cm = pd.DataFrame(data_list, columns=columns)
 
 species = ['Adelie','Chinstrap','Gentoo']
 cm_plot = alt.Chart(df_cm).mark_rect().encode(
-                x=alt.X("predicted:N", axis=alt.Axis(values=species, title='Predicted Species')),
+                # x=alt.X("predicted:N", axis=alt.Axis(values=species, title='Predicted Species')),
+                x="predicted:N",
                 y="actual:N",
                 color='confusion_matrix'
             ).properties(
