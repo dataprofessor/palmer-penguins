@@ -32,20 +32,22 @@ input_df = pd.DataFrame(data, index=[0])
 # This will be useful for the encoding phase
 penguins_raw = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/data/master/penguins_cleaned.csv')
 penguins = penguins_raw.drop('species', axis=1)
-df = pd.concat([input_df,penguins],axis=0)
+input_penguins = pd.concat([input_df,penguins],axis=0)
 
 # Encoding ordinal features
 encode = ['gender','island']
 for col in encode:
-    dummy = pd.get_dummies(df[col], prefix=col)
-    df = pd.concat([df,dummy], axis=1)
-    del df[col]
-d_f = df[:1] # Selects only the first row (the user input data)
+    dummy = pd.get_dummies(input_penguins[col], prefix=col)
+    df_penguins = pd.concat([input_penguins,dummy], axis=1)
+    del df_penguins[col]
+input_row = df_penguins[:1] # Selects only the first row (the user input data)
 
 # ML model building
+## Preparing the dataframe
 target_mapper = {'Adelie':0, 'Chinstrap':1, 'Gentoo':2}
 def target_encode(val):
     return target_mapper[val]
+df = penguins_raw.copy()
 df['species'] = df['species'].apply(target_encode)
 
 ## Separating X and y
