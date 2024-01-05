@@ -11,7 +11,7 @@ st.title("🐧 Palmer Penguins Predictor - Easy Mode")
 # User input features
 def user_input_features():
     island = st.sidebar.selectbox('Island',('Biscoe','Dream','Torgersen'))
-    sex = st.sidebar.selectbox('Sex',('male','female'))
+    sex = st.sidebar.selectbox('Gender',('male','female'))
     bill_length_mm = st.sidebar.slider('Bill length (mm)', 32.1,59.6,43.9)
     bill_depth_mm = st.sidebar.slider('Bill depth (mm)', 13.1,21.5,17.2)
     flipper_length_mm = st.sidebar.slider('Flipper length (mm)', 172.0,231.0,201.0)
@@ -33,7 +33,7 @@ penguins = penguins_raw.drop(columns=['species'], axis=1)
 df = pd.concat([input_df,penguins],axis=0)
 
 # Encoding ordinal features
-encode = ['sex','island']
+encode = ['gender','island']
 for col in encode:
     dummy = pd.get_dummies(df[col], prefix=col)
     df = pd.concat([df,dummy], axis=1)
