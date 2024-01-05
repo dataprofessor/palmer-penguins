@@ -142,25 +142,20 @@ st.altair_chart(bars, theme='streamlit', use_container_width=True)
 st.write('Confusion matrix:')
 predictions = clf.predict(X)
 cm = confusion_matrix(y, predictions, labels=clf.classes_)
-#disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=clf.classes_)
-#st.pyplot(disp)
-
 
 labels = np.unique(y)
 cm = [y for i in cm for y in i]
 roll = list(product(np.unique(y), repeat = 2))
 columns = ["actual", "predicted", "confusion_matrix"]
-#df = pd.DataFrame(columns=columns)
-#for i in range(len(roll)):
-#    df = df.append({'actual':roll[i][0], 'predicted':roll[i][1], 'confusion_matrix':cm[i]}, ignore_index=True)
 
 data_list = [{'actual': roll[i][0], 'predicted': roll[i][1], 'confusion_matrix': cm[i]} for i in range(len(roll))]
 df_cm = pd.DataFrame(data_list, columns=columns)
 
 
 #plot figure
+species = ['Adelie','Chinstrap','Gentoo']
 cm_plot = alt.Chart(df_cm).mark_rect().encode(
-                x="predicted:N",
+                x=alt.X("predicted:N",axis=alt.Axis(title='Predicted species', values=species)) ),
                 y="actual:N",
                 color='confusion_matrix'
             ).properties(
