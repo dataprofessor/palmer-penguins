@@ -1,6 +1,10 @@
 import streamlit as st
+import pandas as pd
 
-st.set_page_config(page_title='Intermediate', page_icon='2️⃣')
+st.set_page_config(
+    page_title='Palmer Penguins Predictor - Intermediate Mode',
+    page_icon='🐧',
+)
 
-st.title('2️⃣ Intermediate')
-
+st.title('🐧 Palmer Penguins Predictor')
+st.warning('Intermediate Mode')
