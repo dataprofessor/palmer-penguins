@@ -56,13 +56,14 @@ def target_encode(val):
 #    dummy = pd.get_dummies(df[col], prefix=col)
 #    df = pd.concat([df,dummy], axis=1)
 #    del df[col]
-    
-df = df_penguins[1:]
-df['species'] = penguins_raw['species'].apply(target_encode)
 
 ## Separating X and y
-X = df.drop('species', axis=1)
-y = df['species']
+X = df_penguins[1:]
+y = penguins_raw['species'].apply(target_encode)
+
+## Separating X and y
+#X = df.drop('species', axis=1)
+#y = df['species']
 
 
 
