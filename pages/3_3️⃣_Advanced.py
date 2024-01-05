@@ -150,12 +150,17 @@ labels = np.unique(y)
 cm = [y for i in cm for y in i]
 roll = list(product(np.unique(y), repeat = 2))
 columns = ["actual", "predicted", "confusion_matrix"]
-df = pd.DataFrame(columns=columns)
-for i in range(len(roll)):
-    df = df.append({'actual':roll[i][0], 'predicted':roll[i][1], 'confusion_matrix':cm[i]}, ignore_index=True)
+#df = pd.DataFrame(columns=columns)
+#for i in range(len(roll)):
+#    df = df.append({'actual':roll[i][0], 'predicted':roll[i][1], 'confusion_matrix':cm[i]}, ignore_index=True)
+
+data_list = [{'actual': roll[i][0], 'predicted': roll[i][1], 'confusion_matrix': cm[i]} for i in range(len(roll))]
+df_cm = pd.DataFrame(data_list, columns=columns)
+
+
 #plot figure
 def make_example(selector):
-    return alt.Chart(df).mark_rect().encode(
+    return alt.Chart(df_cm).mark_rect().encode(
         x="predicted:N",
         y="actual:N",
         color=alt.condition(selector, 'confusion_matrix', alt.value('lightgray'))
