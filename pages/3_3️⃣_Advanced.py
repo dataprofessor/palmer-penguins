@@ -1,5 +1,10 @@
 import streamlit as st
+import pandas as pd
 
-st.set_page_config(page_title='Advanced', page_icon='3️⃣')
+st.set_page_config(
+    page_title='Palmer Penguins Predictor - Advanced Mode',
+    page_icon='🐧',
+)
 
-st.title('3️⃣ Advanced')
+st.title('🐧 Palmer Penguins Predictor')
+st.warning('Advanced Mode')
