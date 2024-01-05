@@ -153,7 +153,7 @@ df_cm = pd.DataFrame(data_list, columns=columns)
 
 species = ['Adelie','Chinstrap','Gentoo']
 cm_plot = alt.Chart(df_cm).mark_rect().encode(
-                x=alt.X("predicted:N", axis=alt.Axis(values=species, title='Predicted Species')) ),
+                x=alt.X("predicted:N", axis=alt.Axis(values=species, title='Predicted Species')),
                 y="actual:N",
                 color='confusion_matrix'
             ).properties(
