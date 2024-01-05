@@ -116,3 +116,19 @@ st.download_button(
     file_name='prediction.csv',
     mime='text/csv',
 )
+
+
+st.subheader('Model details')
+
+# Display feature importance plot
+importances = clf.feature_importances_
+feature_names = list(X.columns)
+forest_importances = pd.Series(importances, index=feature_names)
+df_importance = forest_importances.reset_index().rename(columns={'index': 'feature', 0: 'value'})
+    
+bars = alt.Chart(df_importance).mark_bar(size=40).encode(
+             x='value:Q',
+             y=alt.Y('feature:N', sort='-x')
+           ).properties(height=250)
+# st.header('Feature importance', divider='rainbow')
+st.altair_chart(bars, theme='streamlit', use_container_width=True)
