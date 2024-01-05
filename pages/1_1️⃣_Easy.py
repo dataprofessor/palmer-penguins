@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
 
 st.set_page_config(
     page_title='Palmer Penguins Predictor - Easy Mode',
@@ -30,7 +31,7 @@ input_df = pd.DataFrame(data, index=[0])
 # Combines user input features with entire penguins dataset
 # This will be useful for the encoding phase
 penguins_raw = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/data/master/penguins_cleaned.csv')
-penguins = penguins_raw.drop(columns=['species'], axis=1)
+penguins = penguins_raw.drop('species', axis=1)
 df = pd.concat([input_df,penguins],axis=0)
 
 # Encoding ordinal features
@@ -39,7 +40,30 @@ for col in encode:
     dummy = pd.get_dummies(df[col], prefix=col)
     df = pd.concat([df,dummy], axis=1)
     del df[col]
-df = df[:1] # Selects only the first row (the user input data)
+d_f = df[:1] # Selects only the first row (the user input data)
 
-st.write(df)
+# ML model building
+target_mapper = {'Adelie':0, 'Chinstrap':1, 'Gentoo':2}
+def target_encode(val):
+    return target_mapper[val]
+df['species'] = df['species'].apply(target_encode)
 
+## Separating X and y
+X = penguins_raw.drop('species', axis=1)
+y = penguins_raw['species']
+
+# Train ML model
+clf = RandomForestClassifier()
+clf.fit(X, y)
+
+# Apply model to make predictions
+prediction = load_clf.predict(df)
+prediction_proba = load_clf.predict_proba(df)
+
+
+st.subheader('Prediction')
+penguins_species = np.array(['Adelie','Chinstrap','Gentoo'])
+st.write(penguins_species[prediction])
+
+st.subheader('Prediction Probability')
+st.write(prediction_proba)
