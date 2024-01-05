@@ -37,7 +37,6 @@ penguins_raw = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/palm
 penguins = penguins_raw.drop('species', axis=1)
 input_penguins = pd.concat([input_df, penguins],axis=0)
 
-st.write(input_penguins)
 
 ## Encoding ordinal features
 encode = ['gender','island']
@@ -45,7 +44,7 @@ encode = ['gender','island']
 for col in encode:
     dummy = pd.get_dummies(input_penguins[col], prefix=col)
     df_penguins = pd.concat([input_penguins,dummy], axis=1)
-    del df_penguins[col]
+    # del df_penguins[col]
 
 input_row = df_penguins[:1] # Selects only the first row (the user input data)
 
