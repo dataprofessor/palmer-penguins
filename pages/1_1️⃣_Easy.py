@@ -39,7 +39,7 @@ input_penguins = pd.concat([input_df, penguins],axis=0)
 
 
 ## Encoding ordinal features
-encode = ['gender','island']
+encode = ['island','gender']
 
 for col in encode:
     dummy = pd.get_dummies(input_penguins[col], prefix=col)
