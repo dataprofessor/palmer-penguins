@@ -39,7 +39,7 @@ input_penguins = pd.concat([input_df, penguins],axis=0)
 
 ## Encoding ordinal features
 encode = ['island','gender']
-df_penguins = pd.get_dummies(input_penguins, prefix=encode).drop(encode, axis=1)
+df_penguins = pd.get_dummies(input_penguins, prefix=encode).drop(encode, axis=0)
 
 input_row = df_penguins[:1] # Selects only the first row (the user input data)
 
