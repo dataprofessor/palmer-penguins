@@ -122,6 +122,7 @@ st.download_button(
 st.subheader('Model details')
 
 # Display feature importance plot
+st.markdown('#### Feature importance')
 importances = clf.feature_importances_
 feature_names = list(X.columns)
 forest_importances = pd.Series(importances, index=feature_names)
@@ -131,5 +132,5 @@ bars = alt.Chart(df_importance).mark_bar(size=40).encode(
              x='value:Q',
              y=alt.Y('feature:N', sort='-x')
            ).properties(height=500)
-# st.header('Feature importance', divider='rainbow')
+
 st.altair_chart(bars, theme='streamlit', use_container_width=True)
