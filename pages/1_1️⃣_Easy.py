@@ -7,7 +7,7 @@ st.set_page_config(
 )
 
 st.title('🐧 Palmer Penguins Predictor')
-st.subheader('`Easy Mode`')
+st.info('`Easy Mode`')
 
 # User input features
 st.subheader('Input features')
