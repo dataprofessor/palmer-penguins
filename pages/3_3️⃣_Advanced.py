@@ -143,4 +143,26 @@ predictions = clf.predict(X)
 cm = confusion_matrix(y, predictions, labels=clf.classes_)
 #disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=clf.classes_)
 #st.pyplot(disp)
-cm
+
+
+labels = np.unique(y_true)
+cm = [y for i in cm for y in i]
+roll = list(product(np.unique(y_true), repeat = 2))
+columns = ["actual", "predicted", "confusion_matrix"]
+df = pd.DataFrame(columns=columns)
+for i in range(len(roll)):
+    df = df.append({'actual':roll[i][0], 'predicted':roll[i][1], 'confusion_matrix':cm[i]}, ignore_index=True)
+#plot figure
+def make_example(selector):
+    return alt.Chart(df).mark_rect().encode(
+        x="predicted:N",
+        y="actual:N",
+        color=alt.condition(selector, 'confusion_matrix', alt.value('lightgray'))
+    ).properties(
+        width=600,
+        height=480
+    ).add_selection(
+        selector
+    )
+interval_x = alt.selection_interval(encodings=['x'], empty='none')
+st.altair_chart(make_example(interval_x))
