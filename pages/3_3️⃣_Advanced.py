@@ -143,6 +143,9 @@ st.write('Confusion matrix:')
 predictions = clf.predict(X)
 cm = confusion_matrix(y, predictions, labels=clf.classes_)
 
+st.write(cm)
+
+
 labels = np.unique(y)
 cm = [y for i in cm for y in i]
 roll = list(product(np.unique(y), repeat = 2))
