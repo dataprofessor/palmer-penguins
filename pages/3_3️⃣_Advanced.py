@@ -122,7 +122,7 @@ st.download_button(
 st.subheader('Model details')
 
 # Display feature importance plot
-st.markdown('#### Feature importance')
+st.write('Feature importance:')
 importances = clf.feature_importances_
 feature_names = list(X.columns)
 forest_importances = pd.Series(importances, index=feature_names)
