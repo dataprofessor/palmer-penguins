@@ -30,7 +30,7 @@ data = {'island': island,
 input_df = pd.DataFrame(data, index=[0])
 
 st.write('Input feature DataFrame:')
-st.dataframe(input_df)
+st.dataframe(input_df, hide_index=True)
 
 # Data pre-processing
 
