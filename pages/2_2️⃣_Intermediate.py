@@ -29,6 +29,8 @@ data = {'island': island,
         'gender': gender}
 input_df = pd.DataFrame(data, index=[0])
 
+st.dataframe(input_df)
+
 # Data pre-processing
 
 ## Combines user input features with entire penguins dataset
@@ -42,8 +44,6 @@ encode = ['island','gender']
 df_penguins = pd.get_dummies(input_penguins, prefix=encode)
 
 input_row = df_penguins[:1] # Selects only the first row (the user input data)
-
-st.dataframe(input_row)
 
 ## Preparing the dataframe
 target_mapper = {'Adelie':0, 'Chinstrap':1, 'Gentoo':2}
