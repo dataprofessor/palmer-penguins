@@ -143,4 +143,4 @@ predictions = clf.predict(y)
 cm = confusion_matrix(y, predictions, labels=clf.classes_)
 disp = ConfusionMatrixDisplay(confusion_matrix=cm,
                               display_labels=clf.classes_)
-st.pyplot(disp)
+#st.pyplot(disp)
