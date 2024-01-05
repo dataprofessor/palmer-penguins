@@ -68,7 +68,7 @@ st.subheader('Prediction')
 
 st.write('Predicted Species:')
 penguins_species = ['Adelie','Chinstrap','Gentoo']
-st.success(str(penguins_species[prediction][0]))
+st.success(penguins_species[prediction][0])
 
 st.write('Prediction Probability:')
 st.dataframe(prediction_proba, 
