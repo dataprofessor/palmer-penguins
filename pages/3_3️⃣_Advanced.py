@@ -163,7 +163,7 @@ def make_example(selector):
     return alt.Chart(df_cm).mark_rect().encode(
         x="predicted:N",
         y="actual:N",
-        color=alt.condition(selector, 'confusion_matrix')
+        color='confusion_matrix'
     ).properties(
         width=600,
         height=480
