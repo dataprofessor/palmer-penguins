@@ -41,19 +41,10 @@ df_penguins = pd.get_dummies(input_penguins, prefix=encode)
 
 input_row = df_penguins[:1] # Selects only the first row (the user input data)
 
-st.write(input_row)
-
 ## Preparing the dataframe
 target_mapper = {'Adelie':0, 'Chinstrap':1, 'Gentoo':2}
 def target_encode(val):
     return target_mapper[val]
-
-#df = penguins_raw.copy()
-
-#for col in encode:
-#    dummy = pd.get_dummies(df[col], prefix=col)
-#    df = pd.concat([df,dummy], axis=1)
-#    del df[col]
 
 ## Separating X and y
 X = df_penguins[1:]
