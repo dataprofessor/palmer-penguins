@@ -6,5 +6,5 @@ st.set_page_config(
 )
 
 st.title('🐧 Palmer Penguins Predictor')
-st.write('Built in 3 levels of difficulty!')
+st.warning('Built in 3 levels of difficulty!')
 
