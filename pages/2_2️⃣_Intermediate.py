@@ -99,5 +99,5 @@ st.dataframe(df_prediction,
              hide_index=True,
           )
 
-df2 = pd.concat([input_df, df_prediction, pd.Series(penguins_species[prediction], column='prediction')], axis=1)
+df2 = pd.concat([input_df, df_prediction, pd.Series(penguins_species[prediction], name='prediction')], axis=1)
 df2
