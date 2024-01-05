@@ -145,7 +145,7 @@ cm = confusion_matrix(y, predictions, labels=clf.classes_)
 #st.pyplot(disp)
 
 
-labels = np.unique(y_true)
+labels = np.unique(y)
 cm = [y for i in cm for y in i]
 roll = list(product(np.unique(y), repeat = 2))
 columns = ["actual", "predicted", "confusion_matrix"]
