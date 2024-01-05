@@ -159,16 +159,15 @@ df_cm = pd.DataFrame(data_list, columns=columns)
 
 
 #plot figure
-def make_example(selector):
-    return alt.Chart(df_cm).mark_rect().encode(
-        x="predicted:N",
-        y="actual:N",
-        color='confusion_matrix'
-    ).properties(
-        width=600,
-        height=480
-    ).add_selection(
-        selector
-    )
+cm_plot = alt.Chart(df_cm).mark_rect().encode(
+                x="predicted:N",
+                y="actual:N",
+                color='confusion_matrix'
+            ).properties(
+                width=600,
+                height=480
+            ).add_selection(
+                alt.selection_interval(encodings=['x'], empty='none')
+            )
 interval_x = alt.selection_interval(encodings=['x'], empty='none')
-st.altair_chart(make_example(interval_x))
+st.altair_chart(cm_plot)
