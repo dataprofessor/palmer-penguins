@@ -5,6 +5,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import altair as alt
 import matplotlib.pyplot as plt
+from itertools import product
 
 st.set_page_config(
     page_title='Palmer Penguins Predictor - Advanced Mode',
