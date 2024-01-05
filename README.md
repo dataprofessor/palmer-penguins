@@ -1,22 +1,12 @@
-# 🤖 ML3 - ML app in 3 difficulty levels
+# 🤖 Palmer Penguins Predictor
 
-Description of the app ...
+The Palmer Penguins Predictor built in 3 levels of difficulty!
 
 ## Demo App
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://app-starter-kit.streamlit.app/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://palmer-penguins.streamlit.app/)
 
 ## GitHub Codespaces
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/app-starter-kit?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/dataprofessor/palmer-penguins?quickstart=1)
 
-## Section Heading
-
-This is filler text, please replace this with text for this section.
-
-## Further Reading
-
-This is filler text, please replace this with a explanatory text about further relevant resources for this repo
-- Resource 1
-- Resource 2
-- Resource 3
