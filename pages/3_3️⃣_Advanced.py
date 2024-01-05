@@ -144,8 +144,7 @@ predictions = clf.predict(X)
 cm = confusion_matrix(y, predictions, labels=clf.classes_)
 
 labels = np.unique(y)
-cm = [str(penguins_species[y][0]) for i in cm for y in i]
-# cm = [y for i in cm for y in i]
+cm = [y for i in cm for y in i]
 roll = list(product(np.unique(y), repeat = 2))
 columns = ["actual", "predicted", "confusion_matrix"]
 
@@ -165,3 +164,6 @@ cm_plot = alt.Chart(df_cm).mark_rect().encode(
                 alt.selection_interval(encodings=['x'], empty='none')
             )
 st.altair_chart(cm_plot)
+
+
+cm
