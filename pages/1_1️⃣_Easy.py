@@ -37,10 +37,12 @@ input_penguins = pd.concat([input_df,penguins],axis=0)
 
 # Encoding ordinal features
 encode = ['gender','island']
+
 for col in encode:
     dummy = pd.get_dummies(input_penguins[col], prefix=col)
     df_penguins = pd.concat([input_penguins,dummy], axis=1)
     del df_penguins[col]
+
 input_row = df_penguins[:1] # Selects only the first row (the user input data)
 
 # ML model building
@@ -50,6 +52,12 @@ def target_encode(val):
     return target_mapper[val]
 
 df = penguins_raw.copy()
+
+for col in encode:
+    dummy = pd.get_dummies(df[col], prefix=col)
+    df = pd.concat([df,dummy], axis=1)
+    del df[col]
+    
 df['species'] = df['species'].apply(target_encode)
 
 ## Separating X and y
