@@ -55,9 +55,11 @@ df['species'] = df['species'].apply(target_encode)
 X = df.drop('species', axis=1)
 y = df['species']
 
+st.write(X)
+
 # Train ML model
-clf = RandomForestClassifier()
-clf.fit(X, y)
+# clf = RandomForestClassifier()
+# clf.fit(X, y)
 
 # Apply model to make predictions
 # prediction = clf.predict(input_row)
