@@ -38,7 +38,7 @@ with st.sidebar:
     st.header('⚙️ Model Settings')
     parameter_split_size = st.slider('Data split ratio (% for Training Set)', 10, 90, 80, 5)
     parameter_n_estimators = st.slider('Number of estimators (n_estimators)', 0, 1000, 100, 100)
-    parameter_max_features = st.slider('Max features (max_features)', 0, 5, 1)
+    parameter_max_features = st.slider('Max features (max_features)', 0, 5, 5, 1)
 
 # Data pre-processing
 
