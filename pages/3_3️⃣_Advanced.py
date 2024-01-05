@@ -32,6 +32,13 @@ input_df = pd.DataFrame(data, index=[0])
 st.write('DataFrame of Input features:')
 st.dataframe(input_df, hide_index=True)
 
+# Model settings
+
+with st.sidebar():
+    st.header('⚙️ Model Settings')
+    parameter_split_size = st.slider('Data split ratio (% for Training Set)', 10, 90, 80, 5)
+
+
 # Data pre-processing
 
 ## Combines user input features with entire penguins dataset
