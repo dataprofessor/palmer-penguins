@@ -29,6 +29,8 @@ data = {'island': island,
         'gender': gender}
 input_df = pd.DataFrame(data, index=[0])
 
+st.dataframe(input_df)
+
 # Data pre-processing
 
 ## Combines user input features with entire penguins dataset
