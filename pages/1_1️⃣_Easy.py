@@ -47,6 +47,8 @@ for col in encode:
 
 input_row = df_penguins[:1] # Selects only the first row (the user input data)
 
+st.write(input_row)
+
 ## Preparing the dataframe
 target_mapper = {'Adelie':0, 'Chinstrap':1, 'Gentoo':2}
 def target_encode(val):
