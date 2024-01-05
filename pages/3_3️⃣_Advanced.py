@@ -151,7 +151,8 @@ columns = ["actual", "predicted", "confusion_matrix"]
 data_list = [{'actual': roll[i][0], 'predicted': roll[i][1], 'confusion_matrix': cm[i]} for i in range(len(roll))]
 df_cm = pd.DataFrame(data_list, columns=columns)
 
-df_cm = df_cm.replace([0,1,2], ['Adelie','Chinstrap','Gentoo'])
+df_cm['actual'] = df_cm['actual'].replace([0,1,2], ['Adelie','Chinstrap','Gentoo'])
+df_cm['predicted'] = df_cm['predicted'].replace([0,1,2], ['Adelie','Chinstrap','Gentoo'])
 
 # species = ['Adelie','Chinstrap','Gentoo']
 cm_plot = alt.Chart(df_cm).mark_rect().encode(
