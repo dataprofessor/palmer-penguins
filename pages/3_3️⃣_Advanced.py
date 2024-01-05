@@ -140,6 +140,6 @@ st.altair_chart(bars, theme='streamlit', use_container_width=True)
 # Display confusion matrix plot
 st.write('Confusion matrix:')
 predictions = clf.predict(y)
-cm = confusion_matrix(y, predictions, labels=clf.classes_)
+# cm = confusion_matrix(y, predictions, labels=clf.classes_)
 #disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=clf.classes_)
 #st.pyplot(disp)
