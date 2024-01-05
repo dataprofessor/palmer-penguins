@@ -71,11 +71,11 @@ clf.fit(X, y)
 
 # Apply model to make predictions
 prediction = clf.predict(input_row)
-prediction_proba = clf.predict_proba(input_row)
+# prediction_proba = clf.predict_proba(input_row)
 
-st.subheader('Prediction')
-penguins_species = np.array(['Adelie','Chinstrap','Gentoo'])
-st.write(penguins_species[prediction])
+#st.subheader('Prediction')
+#penguins_species = np.array(['Adelie','Chinstrap','Gentoo'])
+#st.write(penguins_species[prediction])
 
-st.subheader('Prediction Probability')
-st.write(prediction_proba)
+#st.subheader('Prediction Probability')
+#st.write(prediction_proba)
