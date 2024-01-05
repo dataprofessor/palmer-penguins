@@ -101,7 +101,7 @@ st.dataframe(df_prediction,
 
 st.subheader('Download')
 df_output = pd.concat([input_df, df_prediction, pd.Series(penguins_species[prediction], name='prediction')], axis=1)
-df_output
+st.dataframe(df_output, hide_index=True)
 st.download_button(
     label="Download results as CSV",
     data=df_output.to_csv().encode('utf-8'),
