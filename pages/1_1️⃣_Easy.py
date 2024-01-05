@@ -37,7 +37,7 @@ penguins_raw = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/palm
 penguins = penguins_raw.drop('species', axis=1)
 input_penguins = pd.concat([input_df, penguins],axis=0)
 
-st.write(penguins_raw)
+st.write(input_penguins)
 
 ## Encoding ordinal features
 encode = ['gender','island']
@@ -49,8 +49,7 @@ for col in encode:
 
 input_row = df_penguins[:1] # Selects only the first row (the user input data)
 
-st.write(df_penguins)
-st.write(input_row)
+
 
 ## Preparing the dataframe
 target_mapper = {'Adelie':0, 'Chinstrap':1, 'Gentoo':2}
@@ -71,8 +70,7 @@ df['species'] = penguins_raw['species'].apply(target_encode)
 X = df.drop('species', axis=1)
 y = df['species']
 
-st.write(X)
-st.write(y)
+
 
 # Train ML model
 clf = RandomForestClassifier()
