@@ -37,6 +37,8 @@ penguins_raw = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/palm
 penguins = penguins_raw.drop('species', axis=1)
 input_penguins = pd.concat([input_df, penguins],axis=0)
 
+st.write(penguins_raw)
+
 ## Encoding ordinal features
 encode = ['gender','island']
 
