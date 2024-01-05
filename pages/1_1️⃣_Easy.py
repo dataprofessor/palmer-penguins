@@ -44,11 +44,11 @@ encode = ['gender','island']
 for col in encode:
     dummy = pd.get_dummies(input_penguins[col], prefix=col)
     df_penguins = pd.concat([input_penguins,dummy], axis=1)
-    # del df_penguins[col]
+    del df_penguins[col]
 
 input_row = df_penguins[:1] # Selects only the first row (the user input data)
 
-
+st.write(input_row)
 
 ## Preparing the dataframe
 target_mapper = {'Adelie':0, 'Chinstrap':1, 'Gentoo':2}
