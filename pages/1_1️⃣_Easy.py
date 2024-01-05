@@ -48,7 +48,8 @@ input_row = df_penguins[:1] # Selects only the first row (the user input data)
 target_mapper = {'Adelie':0, 'Chinstrap':1, 'Gentoo':2}
 def target_encode(val):
     return target_mapper[val]
-df = df_penguins.copy()
+
+df = penguins_raw.copy()
 df['species'] = df['species'].apply(target_encode)
 
 ## Separating X and y
