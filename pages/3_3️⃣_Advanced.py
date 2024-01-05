@@ -130,6 +130,6 @@ df_importance = forest_importances.reset_index().rename(columns={'index': 'featu
 bars = alt.Chart(df_importance).mark_bar(size=40).encode(
              x='value:Q',
              y=alt.Y('feature:N', sort='-x')
-           )
+           ).properties(height=420)
 # st.header('Feature importance', divider='rainbow')
 st.altair_chart(bars, theme='streamlit', use_container_width=True)
