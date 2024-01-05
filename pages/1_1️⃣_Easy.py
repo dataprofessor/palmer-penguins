@@ -52,8 +52,8 @@ df = penguins_raw.copy()
 df['species'] = df['species'].apply(target_encode)
 
 ## Separating X and y
-X = df_penguins.drop('species', axis=1)
-y = df_penguins['species']
+X = df.drop('species', axis=1)
+y = df['species']
 
 st.write(X)
 
