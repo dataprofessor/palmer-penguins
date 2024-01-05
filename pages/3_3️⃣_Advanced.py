@@ -63,7 +63,8 @@ X = df_penguins[1:]
 y = penguins_raw['species'].apply(target_encode)
 
 # Train ML model
-clf = RandomForestClassifier()
+clf = RandomForestClassifier(n_estimators=parameter_n_estimators,
+                             max_features=parameter_max_features,)
 clf.fit(X, y)
 
 # Apply model to make predictions
