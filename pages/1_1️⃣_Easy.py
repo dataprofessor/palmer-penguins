@@ -61,11 +61,7 @@ def target_encode(val):
 X = df_penguins[1:]
 y = penguins_raw['species'].apply(target_encode)
 
-## Separating X and y
-#X = df.drop('species', axis=1)
-#y = df['species']
-
-
+st.write(X, y)
 
 # Train ML model
 # clf = RandomForestClassifier()
