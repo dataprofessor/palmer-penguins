@@ -2,11 +2,12 @@ import streamlit as st
 import pandas as pd
 
 st.set_page_config(
-    page_title="Palmer Penguins Predictor - Easy Mode",
-    page_icon="🐧",
+    page_title='Palmer Penguins Predictor - Easy Mode',
+    page_icon='🐧',
 )
 
-st.title("🐧 Palmer Penguins Predictor - Easy Mode")
+st.title('🐧 Palmer Penguins Predictor')
+st.write('`Easy Mode`')
 
 # User input features
 st.subheader('Input features')
