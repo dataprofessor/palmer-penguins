@@ -31,7 +31,7 @@ input_df = pd.DataFrame(data, index=[0])
 
 # Combines user input features with entire penguins dataset
 # This will be useful for the encoding phase
-penguins_raw = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/data/master/penguins_cleaned.csv')
+penguins_raw = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/palmer-penguins/master/data/penguins_cleaned.csv')
 penguins = penguins_raw.drop('species', axis=1)
 input_penguins = pd.concat([input_df,penguins],axis=0)
 
