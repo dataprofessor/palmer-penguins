@@ -71,7 +71,7 @@ prediction_proba = clf.predict_proba(input_row)
 
 st.subheader('Prediction')
 penguins_species = np.array(['Adelie','Chinstrap','Gentoo'])
-st.write(penguins_species[prediction])
+st.success(str(penguins_species[prediction]))
 
 st.subheader('Prediction Probability')
 st.write(prediction_proba)
