@@ -11,7 +11,7 @@ st.title("🐧 Palmer Penguins Predictor - Easy Mode")
 # User input features
 def user_input_features():
     island = st.sidebar.selectbox('Island',('Biscoe','Dream','Torgersen'))
-    sex = st.sidebar.selectbox('Gender',('male','female'))
+    gender = st.sidebar.selectbox('Gender',('male','female'))
     bill_length_mm = st.sidebar.slider('Bill length (mm)', 32.1,59.6,43.9)
     bill_depth_mm = st.sidebar.slider('Bill depth (mm)', 13.1,21.5,17.2)
     flipper_length_mm = st.sidebar.slider('Flipper length (mm)', 172.0,231.0,201.0)
@@ -21,7 +21,7 @@ def user_input_features():
             'bill_depth_mm': bill_depth_mm,
             'flipper_length_mm': flipper_length_mm,
             'body_mass_g': body_mass_g,
-            'sex': sex}
+            'gender': gender}
     features = pd.DataFrame(data, index=[0])
     return features
 input_df = user_input_features()
