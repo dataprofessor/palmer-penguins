@@ -51,17 +51,16 @@ df = penguins_raw.copy()
 df['species'] = df['species'].apply(target_encode)
 
 ## Separating X and y
-X = penguins_raw.drop('species', axis=1)
-y = penguins_raw['species']
+X = df.drop('species', axis=1)
+y = df['species']
 
 # Train ML model
 clf = RandomForestClassifier()
 clf.fit(X, y)
 
 # Apply model to make predictions
-prediction = load_clf.predict(df)
-prediction_proba = load_clf.predict_proba(df)
-
+prediction = clf.predict(input_row)
+prediction_proba = clf.predict_proba(input_row)
 
 st.subheader('Prediction')
 penguins_species = np.array(['Adelie','Chinstrap','Gentoo'])
