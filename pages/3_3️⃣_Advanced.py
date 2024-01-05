@@ -169,5 +169,4 @@ cm_plot = alt.Chart(df_cm).mark_rect().encode(
             ).add_selection(
                 alt.selection_interval(encodings=['x'], empty='none')
             )
-interval_x = alt.selection_interval(encodings=['x'], empty='none')
 st.altair_chart(cm_plot)
