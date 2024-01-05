@@ -168,4 +168,4 @@ cm_plot = alt.Chart(df_cm).mark_rect().encode(
             )
 st.altair_chart(cm_plot)
 
-
+df_cm
