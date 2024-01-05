@@ -49,6 +49,7 @@ for col in encode:
 
 input_row = df_penguins[:1] # Selects only the first row (the user input data)
 
+st.write(df_penguins)
 st.write(input_row)
 
 ## Preparing the dataframe
