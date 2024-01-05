@@ -29,7 +29,7 @@ data = {'island': island,
         'gender': gender}
 input_df = pd.DataFrame(data, index=[0])
 
-st.write('Input feature DataFrame')
+st.write('Input feature DataFrame:')
 st.dataframe(input_df)
 
 # Data pre-processing
