@@ -147,7 +147,7 @@ cm = confusion_matrix(y, predictions, labels=clf.classes_)
 
 labels = np.unique(y_true)
 cm = [y for i in cm for y in i]
-roll = list(product(np.unique(y_true), repeat = 2))
+roll = list(product(np.unique(y), repeat = 2))
 columns = ["actual", "predicted", "confusion_matrix"]
 df = pd.DataFrame(columns=columns)
 for i in range(len(roll)):
