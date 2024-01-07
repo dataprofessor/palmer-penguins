@@ -160,9 +160,9 @@ cm_plot = alt.Chart(df_cm).mark_rect().encode(
                 x="predicted:O",
                 y="actual:O",
                 color='confusion_matrix'
-            ).properties(
-                width=600,
-                height=480
+            #).properties(
+            #    width=600,
+            #    height=480
             ).add_selection(
                 alt.selection_interval(encodings=['x'], empty='none')
             )
