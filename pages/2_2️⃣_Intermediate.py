@@ -98,7 +98,7 @@ st.dataframe(df_prediction,
              hide_index=True,
           )
 
-st.subheader('Download')
+st.subheader('Download results')
 df_output = pd.concat([input_df, df_prediction, pd.Series(penguins_species[prediction], name='prediction')], axis=1)
 st.dataframe(df_output, hide_index=True)
 st.download_button(
