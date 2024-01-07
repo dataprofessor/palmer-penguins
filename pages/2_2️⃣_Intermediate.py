@@ -32,11 +32,11 @@ input_df = pd.DataFrame(data, index=[0])
 st.write('DataFrame of Input features:')
 st.dataframe(input_df, hide_index=True)
 
-# Data pre-processing
-
-## Combines user input features with entire penguins dataset
-## This will be useful for the encoding phase
+# Load data
 penguins_raw = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/palmer-penguins/master/data/penguins_cleaned.csv')
+
+# Data pre-processing
+## Combines user input features with entire penguins dataset; useful for encoding phase
 penguins = penguins_raw.drop('species', axis=1)
 input_penguins = pd.concat([input_df, penguins],axis=0)
 
