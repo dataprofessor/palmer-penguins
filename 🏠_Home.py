@@ -7,7 +7,9 @@ st.set_page_config(
 )
 
 st.title('🐧 Palmer Penguins Predictor')
-st.info('Built in 3 levels of difficulty!')
+st.info('This tool allows one to predict the species of Palmer penguins as a function of their input features. It is built in 3 levels of difficulty!')
+
+st.write('👇 Choose one:')
 
 col = st.columns(3)
 with col[0]:
