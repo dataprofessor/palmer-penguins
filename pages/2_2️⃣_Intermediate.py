@@ -70,7 +70,6 @@ penguins_species = np.array(['Adelie','Chinstrap','Gentoo'])
 st.success(str(penguins_species[prediction][0]))
 
 st.write('Prediction Probability:')
-
 st.dataframe(df_prediction,
             column_config={
                 'Adelie': st.column_config.ProgressColumn(
