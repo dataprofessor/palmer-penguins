@@ -128,20 +128,6 @@ st.download_button(
 # Display model results
 st.subheader('Model details')
 
-## Display feature importance plot
-st.write('Feature importance:')
-importances = clf.feature_importances_
-feature_names = list(X.columns)
-forest_importances = pd.Series(importances, index=feature_names)
-df_importance = forest_importances.reset_index().rename(columns={'index': 'feature', 0: 'value'})
-    
-bars = alt.Chart(df_importance).mark_bar(size=40).encode(
-             x='value:Q',
-             y=alt.Y('feature:N', sort='-x')
-           ).properties(height=500)
-
-st.altair_chart(bars, theme='streamlit', use_container_width=True)
-
 ## Display confusion matrix plot
 st.write('Confusion matrix:')
 predictions = clf.predict(X)
@@ -171,3 +157,18 @@ cm_plot = alt.Chart(df_cm).mark_rect().encode(
                 alt.selection_interval(encodings=['x'], empty='none')
             )
 st.altair_chart(cm_plot, use_container_width=True)
+
+## Display feature importance plot
+st.write('Feature importance:')
+importances = clf.feature_importances_
+feature_names = list(X.columns)
+forest_importances = pd.Series(importances, index=feature_names)
+df_importance = forest_importances.reset_index().rename(columns={'index': 'feature', 0: 'value'})
+    
+bars = alt.Chart(df_importance).mark_bar(size=40).encode(
+             x='value:Q',
+             y=alt.Y('feature:N', sort='-x')
+           ).properties(height=500)
+
+st.altair_chart(bars, theme='streamlit', use_container_width=True)
+
