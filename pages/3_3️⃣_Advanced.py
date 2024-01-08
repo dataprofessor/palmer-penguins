@@ -81,10 +81,12 @@ df_prediction = pd.DataFrame(prediction_proba, columns=['Adelie','Chinstrap','Ge
 ## Display predicted species and prediction probability
 st.subheader('Prediction')
 
+### Display predicted species
 st.write('Predicted Species:')
 penguins_species = np.array(['Adelie','Chinstrap','Gentoo'])
 st.success(str(penguins_species[prediction][0]))
 
+### Display prediction probability
 st.write('Prediction Probability:')
 st.dataframe(df_prediction,
             column_config={
