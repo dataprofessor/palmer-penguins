@@ -1,17 +1,20 @@
+# Import libraries
 import streamlit as st
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 
+# Set page configuration
 st.set_page_config(
     page_title='Palmer Penguins Predictor - Intermediate Mode',
     page_icon='🐧',
 )
 
+# Display title
 st.title('🐧 Palmer Penguins Predictor')
 st.warning('Intermediate Mode')
 
-# User input features
+# User provide input features
 st.subheader('Input features')
 with st.container(border=True):
     island = st.selectbox('Island',('Biscoe','Dream','Torgersen'))
@@ -21,6 +24,7 @@ with st.container(border=True):
     flipper_length_mm = st.slider('Flipper length (mm)', 172.0,231.0,201.0)
     body_mass_g = st.slider('Body mass (g)', 2700.0,6300.0,4207.0)
 
+# Create a DataFrame from user input
 data = {'island': island,
         'bill_length_mm': bill_length_mm,
         'bill_depth_mm': bill_depth_mm,
@@ -35,22 +39,22 @@ st.dataframe(input_df, hide_index=True)
 # Load data
 penguins_raw = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/palmer-penguins/master/data/penguins_cleaned.csv')
 
-# Data pre-processing
-## Combines user input features with entire penguins dataset; useful for encoding phase
+# Pre-process data
+## Combine user input features with entire penguins dataset; useful for encoding phase
 penguins = penguins_raw.drop('species', axis=1)
 input_penguins = pd.concat([input_df, penguins],axis=0)
 
-## Encoding ordinal features
+## Encode ordinal features
 encode = ['island','gender']
 df_penguins = pd.get_dummies(input_penguins, prefix=encode)
 input_row = df_penguins[:1] # Selects only the first row (the user input data)
 
-## Preparing the dataframe
+## Prepare dataframe
 target_mapper = {'Adelie':0, 'Chinstrap':1, 'Gentoo':2}
 def target_encode(val):
     return target_mapper[val]
 
-## Separating X and y
+## Separate X and y
 X = df_penguins[1:]
 y = penguins_raw['species'].apply(target_encode)
 
@@ -63,6 +67,7 @@ prediction = clf.predict(input_row)
 prediction_proba = clf.predict_proba(input_row)
 df_prediction = pd.DataFrame(prediction_proba, columns=['Adelie','Chinstrap','Gentoo'])
 
+# Display predicted species and prediction probability
 st.subheader('Prediction')
 
 st.write('Predicted Species:')
@@ -97,6 +102,7 @@ st.dataframe(df_prediction,
              hide_index=True,
           )
 
+# Download results
 st.subheader('Download results')
 df_output = pd.concat([input_df, df_prediction, pd.Series(penguins_species[prediction], name='prediction')], axis=1)
 st.dataframe(df_output, hide_index=True)
