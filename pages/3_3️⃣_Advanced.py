@@ -114,8 +114,7 @@ st.dataframe(df_prediction,
              hide_index=True,
           )
 
-# Results
-## Download results
+### Download prediction results
 st.subheader('Download results')
 df_output = pd.concat([input_df, df_prediction, pd.Series(penguins_species[prediction], name='prediction')], axis=1)
 st.dataframe(df_output, hide_index=True)
@@ -126,10 +125,10 @@ st.download_button(
     mime='text/csv',
 )
 
-## Display model results
+# Display model results
 st.subheader('Model details')
 
-### Display feature importance plot
+## Display feature importance plot
 st.write('Feature importance:')
 importances = clf.feature_importances_
 feature_names = list(X.columns)
@@ -143,7 +142,7 @@ bars = alt.Chart(df_importance).mark_bar(size=40).encode(
 
 st.altair_chart(bars, theme='streamlit', use_container_width=True)
 
-### Display confusion matrix plot
+## Display confusion matrix plot
 st.write('Confusion matrix:')
 predictions = clf.predict(X)
 cm = confusion_matrix(y, predictions, labels=clf.classes_)
