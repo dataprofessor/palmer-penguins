@@ -68,16 +68,17 @@ def target_encode(val):
 X = df_penguins[1:]
 y = penguins_raw['species'].apply(target_encode)
 
-# Train ML model
+# Model training and inference
+## Train ML model
 clf = RandomForestClassifier(n_estimators=parameter_n_estimators, max_features=parameter_max_features,)
 clf.fit(X, y)
 
-# Apply model to make predictions
+## Apply model to make predictions
 prediction = clf.predict(input_row)
 prediction_proba = clf.predict_proba(input_row)
 df_prediction = pd.DataFrame(prediction_proba, columns=['Adelie','Chinstrap','Gentoo'])
 
-# Display predicted species and prediction probability
+## Display predicted species and prediction probability
 st.subheader('Prediction')
 
 st.write('Predicted Species:')
@@ -85,7 +86,6 @@ penguins_species = np.array(['Adelie','Chinstrap','Gentoo'])
 st.success(str(penguins_species[prediction][0]))
 
 st.write('Prediction Probability:')
-
 st.dataframe(df_prediction,
             column_config={
                 'Adelie': st.column_config.ProgressColumn(
@@ -113,7 +113,8 @@ st.dataframe(df_prediction,
              hide_index=True,
           )
 
-# Download results
+# Results
+## Download results
 st.subheader('Download results')
 df_output = pd.concat([input_df, df_prediction, pd.Series(penguins_species[prediction], name='prediction')], axis=1)
 st.dataframe(df_output, hide_index=True)
@@ -124,10 +125,10 @@ st.download_button(
     mime='text/csv',
 )
 
-# Display model results
+## Display model results
 st.subheader('Model details')
 
-## Display feature importance plot
+### Display feature importance plot
 st.write('Feature importance:')
 importances = clf.feature_importances_
 feature_names = list(X.columns)
@@ -141,7 +142,7 @@ bars = alt.Chart(df_importance).mark_bar(size=40).encode(
 
 st.altair_chart(bars, theme='streamlit', use_container_width=True)
 
-## Display confusion matrix plot
+### Display confusion matrix plot
 st.write('Confusion matrix:')
 predictions = clf.predict(X)
 cm = confusion_matrix(y, predictions, labels=clf.classes_)
