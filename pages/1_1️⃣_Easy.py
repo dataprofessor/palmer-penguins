@@ -14,7 +14,7 @@ st.set_page_config(
 st.title('🐧 Palmer Penguins Predictor')
 st.success('Easy Mode')
 
-# User input features
+# User provide input features
 st.subheader('Input features')
 with st.container(border=True):
     island = st.selectbox('Island',('Biscoe','Dream','Torgersen'))
