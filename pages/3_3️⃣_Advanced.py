@@ -49,7 +49,7 @@ with st.sidebar:
 penguins_raw = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/palmer-penguins/master/data/penguins_cleaned.csv')
 
 # Pre-process data
-## Combine user input features with entire penguins dataset; useful for encoding phase
+## Combine user input features with entire penguins data set; useful for encoding phase
 penguins = penguins_raw.drop('species', axis=1)
 input_penguins = pd.concat([input_df, penguins],axis=0)
 
