@@ -58,22 +58,25 @@ def target_encode(val):
 X = df_penguins[1:]
 y = penguins_raw['species'].apply(target_encode)
 
-# Train ML model
+# Model training and inference
+## Train ML model
 clf = RandomForestClassifier()
 clf.fit(X, y)
 
-# Apply model to make predictions
+## Apply model to make predictions
 prediction = clf.predict(input_row)
 prediction_proba = clf.predict_proba(input_row)
 df_prediction = pd.DataFrame(prediction_proba, columns=['Adelie','Chinstrap','Gentoo'])
 
-# Display predicted species and prediction probability
+## Display predicted species and prediction probability
 st.subheader('Prediction')
 
+### Display predicted species
 st.write('Predicted Species:')
 penguins_species = np.array(['Adelie','Chinstrap','Gentoo'])
 st.success(str(penguins_species[prediction][0]))
 
+### Display prediction probability
 st.write('Prediction Probability:')
 st.dataframe(df_prediction,
             column_config={
@@ -102,7 +105,8 @@ st.dataframe(df_prediction,
              hide_index=True,
           )
 
-# Download results
+# Results
+## Download results
 st.subheader('Download results')
 df_output = pd.concat([input_df, df_prediction, pd.Series(penguins_species[prediction], name='prediction')], axis=1)
 st.dataframe(df_output, hide_index=True)
