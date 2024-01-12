@@ -26,6 +26,7 @@ with st.expander('About this app'):
 - Scikit-learn for building a machine learning model
 - Altair for chart creation
 - Streamlit for user interface
+- Streamlit-extras for its switch_page functionality
   ''', language='markdown')
 
 st.write('👇 Choose one:')
