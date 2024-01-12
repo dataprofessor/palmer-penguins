@@ -10,7 +10,7 @@ st.title('🐧 Palmer Penguins Predictor')
 
 with st.expander('About this app'):
   st.markdown('**What can this app do?**')
-  st.info('This tool allows one to predict the species of Palmer penguins as a function of their input features. It is built in 3 levels of difficulty!')
+  st.info('This tool allow users to predict the species of Palmer penguins as a function of their input features. It is built in 3 levels of difficulty!')
 
   st.markdown('**How to use the app?**')
   st.code('''1. Select a difficulty level either from the sidebar or click on buttons under this About expander.
