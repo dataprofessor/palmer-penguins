@@ -31,7 +31,7 @@ with st.expander('About this app'):
 - Streamlit-extras for its switch_page functionality
   ''', language='markdown')
 
-st.write('👇 Choose one:')
+st.write('👇 Choose a difficulty level:')
 
 col = st.columns(3)
 with col[0]:
