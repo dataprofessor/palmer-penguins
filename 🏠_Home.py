@@ -16,7 +16,7 @@ with st.expander('About this app'):
   st.markdown('''1. Select a difficulty level either from the sidebar or click on buttons under this About expander.
 2. From the selected page, adjust widgets for the Input features that will trigger a prediction output of the Penguin species.
 3. As a result, this would initiate the ML model building process, display the model results as well as allow users to download the generated models and accompanying data.
-''', language='markdown')
+''')
 
   st.markdown('**Under the hood**')
   st.markdown('Data sets:')
@@ -28,7 +28,7 @@ with st.expander('About this app'):
 - Altair for chart creation
 - Streamlit for user interface
 - Streamlit-extras for its switch_page functionality
-  ''', language='markdown')
+  ''')
 
 st.write('👇 Choose a difficulty level:')
 
