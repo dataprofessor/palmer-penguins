@@ -33,14 +33,8 @@ st.write('👇 Choose a difficulty level:')
 
 col = st.columns(3)
 with col[0]:
-    btn_easy = st.button('Easy')
-    if btn_easy:
-        st.page_link('pages/1_1️⃣_Easy.py')
+    st.page_link('pages/1_1️⃣_Easy.py', icon='1️⃣')
 with col[1]:
-    btn_intermediate = st.button('Intermediate')
-    if btn_intermediate:
-        st.page_link('pages/2_2️⃣_Intermediate.py')
+    st.page_link('pages/2_2️⃣_Intermediate.py', icon='2️⃣')
 with col[2]:
-    btn_advanced = st.button('Advanced')
-    if btn_advanced:
-        st.page_link('pages/3_3️⃣_Advanced.py')
+    st.page_link('pages/3_3️⃣_Advanced.py', icon='3️⃣')
