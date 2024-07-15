@@ -13,18 +13,17 @@ with st.expander('About this app'):
   st.info('This tool allow users to predict the species of Palmer penguins as a function of their input features. It is built in 3 levels of difficulty that developers can use as inspiration for building their own!')
 
   st.markdown('**How to use the app?**')
-  st.code('''1. Select a difficulty level either from the sidebar or click on buttons under this About expander.
+  st.markdown('''1. Select a difficulty level either from the sidebar or click on buttons under this About expander.
 2. From the selected page, adjust widgets for the Input features that will trigger a prediction output of the Penguin species.
 3. As a result, this would initiate the ML model building process, display the model results as well as allow users to download the generated models and accompanying data.
 ''', language='markdown')
 
   st.markdown('**Under the hood**')
   st.markdown('Data sets:')
-  st.code('''- Palmer Penguins data set
-  ''', language='markdown')
+  st.markdown('- Palmer Penguins data set')
   
   st.markdown('Libraries used:')
-  st.code('''- Pandas for data wrangling
+  st.markdown('''- Pandas for data wrangling
 - Scikit-learn for building a machine learning model
 - Altair for chart creation
 - Streamlit for user interface
